@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { Demo } from './controllers/demo';
+import Demo from './src/controllers/demo';
 
 export default class ApiRouter {
      private demo: Demo;
@@ -27,6 +27,7 @@ export default class ApiRouter {
     private initApiRoutes() {
       this.router.use('/demo', this.demo.getRouter());
       // this.router.use("/flight", this.FlightController.getFlightControllerRouterObject());
-      // this.router.use("/reservation", this.ReservationController.getReservationControllerRouterObject());
+      // this.router.use("/reservation",
+      // this.ReservationController.getReservationControllerRouterObject());
     }
 }

@@ -3,7 +3,7 @@ import { Application } from 'express';
 import Routes from './routes';
 import App from './app';
 // eslint-disable-next-line import/extensions
-import { Demo } from './controllers/demo';
+import Demo from './src/controllers/demo';
 
 dotenv.config({ path: '.env' });
 

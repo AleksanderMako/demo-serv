@@ -20,7 +20,7 @@ services:
       MYSQL_DATABASE: testdb
       MYSQL_USER: user1
       MYSQL_PASSWORD: user1pass
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
     ports:
       - 7000:8080
