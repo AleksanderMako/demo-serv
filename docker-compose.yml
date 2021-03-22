@@ -23,7 +23,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
     ports:
-      - 27018:27018
+      - 7000:8080
 
 networks:
   ovl_net:
