@@ -6,7 +6,7 @@ services:
     working_dir: /app
     ports:
       - 5000:5000
-    command: bash -c "sleep 5  && npm start"
+    command: bash -c "sleep 10  && npm start"
     depends_on:
       - database
 
@@ -23,7 +23,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
     ports:
-      - 7000:8080
+      - 7000:3306
 
 networks:
   ovl_net:
