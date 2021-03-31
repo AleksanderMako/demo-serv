@@ -23,7 +23,7 @@ export default class Bet {
     odd!:number;
 
     @Column('text', { nullable: false })
-    betType!:string; // main or goals
+    betType!:string; // main or goals or ht
 
     @Column('text', { nullable: false })
     betSubType!:string; // on of the nested keys in goals or main or half time
