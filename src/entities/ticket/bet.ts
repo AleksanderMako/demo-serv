@@ -1,7 +1,7 @@
 import {
   Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn,
 } from 'typeorm';
-import Match from '../match/match';
+import Fixture from '../match/match';
 import Ticket from './ticket';
 
 @Entity()
@@ -12,9 +12,9 @@ export default class Bet {
     @CreateDateColumn()
     createdDate!:Date;
 
-    @OneToOne(() => Match)
+    @OneToOne(() => Fixture)
     @JoinColumn()
-    match!:Match;
+    match!:Fixture;
 
     @ManyToOne(() => Ticket, (ticket) => ticket.bets)
     ticket!:Ticket;

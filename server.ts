@@ -6,6 +6,7 @@ import App from './app';
 // eslint-disable-next-line import/extensions
 import Demo from './src/controllers/demo';
 import DataWorker from './src/workers/data_pull';
+import Odds from './src/controllers/odds';
 
 dotenv.config({ path: '.env' });
 
@@ -18,18 +19,19 @@ export default class Server {
 
     private seedService:DataWorker;
 
+    private oddsController: Odds;
+
     constructor(c:Connection) {
       this.conn = c;
       this.demo = new Demo();
-      // this.FlightController = new FlightController();
-      // this.ReservationController = new ReservationController();
-      const apiRoutes = new Routes(this.demo);
+      this.oddsController = new Odds(this.conn.manager);
+      const apiRoutes = new Routes(this.demo, this.oddsController);
       this.application = new App(apiRoutes).getApp();
       this.application.set('port', 5000);
       this.seedService = new DataWorker(this.conn);
       console.log('INFO:Init method completed');
 
-      console.log(`INFO:API PORT :${4000}`);
+      console.log(`INFO:API PORT :${5000}`);
     }
 
     public startListening() {

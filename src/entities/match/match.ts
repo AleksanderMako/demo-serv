@@ -5,7 +5,7 @@ import {
 import MatchOdds from '../odds/odds';
 
 @Entity()
-export default class Match {
+export default class Fixture {
     @PrimaryGeneratedColumn()
     id!: number;
 

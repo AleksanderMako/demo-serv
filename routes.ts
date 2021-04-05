@@ -1,20 +1,27 @@
 import { Router } from 'express';
 import Demo from './src/controllers/demo';
+import Odds from './src/controllers/odds';
 
 export default class ApiRouter {
      private demo: Demo;
+
+     private oddsController:Odds;
 
     // private FlightController: FlightController;
     // private ReservationController: ReservationController;
     private router: Router;
 
-    constructor(demo:Demo) {
+    constructor(demo:Demo, oddsController:Odds) {
       if (!demo) {
         throw new Error('Api controller not specified');
       }
 
+      if (!oddsController) {
+        throw new Error('Odds controller not specified');
+      }
+
       this.demo = demo;
-      // this.ReservationController = injectableReservationController;
+      this.oddsController = oddsController;
       this.router = Router();
       this.initApiRoutes();
       console.log('INFO:Router class inited');
@@ -26,8 +33,6 @@ export default class ApiRouter {
 
     private initApiRoutes() {
       this.router.use('/demo', this.demo.getRouter());
-      // this.router.use("/flight", this.FlightController.getFlightControllerRouterObject());
-      // this.router.use("/reservation",
-      // this.ReservationController.getReservationControllerRouterObject());
+      this.router.use('/odds', this.oddsController.getRouter());
     }
 }

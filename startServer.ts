@@ -1,6 +1,6 @@
 import { createConnection } from 'typeorm';
 import Server from './server';
-import Match from './src/entities/match/match';
+import Fixture from './src/entities/match/match';
 import MatchOdds from './src/entities/odds/odds';
 import Bet from './src/entities/ticket/bet';
 import Ticket from './src/entities/ticket/ticket';
@@ -18,7 +18,7 @@ const start = async function () {
       User,
       Ticket,
       MatchOdds,
-      Match,
+      Fixture,
       Bet,
     ],
     synchronize: true,

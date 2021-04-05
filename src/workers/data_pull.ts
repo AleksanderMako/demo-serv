@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 import { Connection, EntityManager } from 'typeorm';
-import Match from '../entities/match/match';
+import Fixture from '../entities/match/match';
 import MatchOdds from '../entities/odds/odds';
 
 export default class DataWorker {
@@ -18,13 +18,13 @@ export default class DataWorker {
 
     public async seedMatches() {
       const teams = ['Liverpool', 'Everton', 'Arsenal', 'FullHam', 'Burnley', 'Wolves', 'Chelsea', 'Manchester United', 'Manchester City', 'New Castle', 'Stoke City', 'Derby County'];
-      const matches:Match[] = [];
+      const matches:Fixture[] = [];
       const dummyOdds:string = DataWorker.getDummyOdds();
 
       for (let i = 0; i < teams.length; i++) {
         for (let j = 1; j < teams.length; j++) {
           const mId = `${i}${j}`;
-          const match = this.manager.create(Match, {
+          const match = this.manager.create(Fixture, {
             matchId: mId,
             home: teams[i],
             away: teams[j],
